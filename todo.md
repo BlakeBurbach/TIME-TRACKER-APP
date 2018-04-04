@@ -1,6 +1,6 @@
 Project Scoping
 
-- [] Get file hierarchy setup
+- [x] Get file hierarchy setup
     - npm init and installs for all necessary dependencies 
     - .gitignore
     - server folder
