@@ -16,7 +16,12 @@
     <link rel="stylesheet" href="styles/styles.css">
     <title>Time Tracker App</title>
 </head>
-<body>
+<body ng-app="TimeTrackerApp">
     <h1>Time Tracker App</h1>
+    <div ng-include=" '/views/templates/nav.html' "></div>
+
+    <main ng-view>
+        <!-- Where html for other views will go -->
+    </main>
 </body>
 </html>
