@@ -1,0 +1,26 @@
+{
+  "name": "time-tracker-app",
+  "version": "1.0.0",
+  "description": "This app will allow users to keep track of time for projects they are working on.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlakeBurbach/TIME-TRACKER-APP.git"
+  },
+  "author": "Blake Burbach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlakeBurbach/TIME-TRACKER-APP/issues"
+  },
+  "homepage": "https://github.com/BlakeBurbach/TIME-TRACKER-APP#readme",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "pg": "^7.4.1"
+  }
+}
