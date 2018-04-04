@@ -8,12 +8,6 @@
 - Delete existing entries
 - Show total hours worked next to each project on the project page
 
-### Wireframes
-
-![Add Entry Page](page-one.png)
-
-![Add Entry Page](page-two.png)
-
 ### Database
 
 Start with two tables **projects** & **entries**. When base features are complete, add more tables as needed for stretch goals.
@@ -25,7 +19,3 @@ Start with two tables **projects** & **entries**. When base features are complet
 - Display a chart showing the total number of hours worked for each project
 - Ability to select start and end dates to influence what appears on the chart
 - Feel free to deviate from this list and add features of your own
-
-### Wireframes
-
-![Add Entry Page](page-three.png)
