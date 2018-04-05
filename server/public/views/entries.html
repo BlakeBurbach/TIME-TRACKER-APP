@@ -12,5 +12,7 @@
         <input type="time" id="endTime" ng-model="vm.newEntry.endTime">
         <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
     </div>
-
+    <p>{{vm.newEntry.date | date}}</p>
+    <p>{{vm.newEntry.startTime | date: 'hh:mm a'}}</p>
+    <p>{{vm.newEntry.endTime | date: 'hh:mm a'}}</p>
 </div>

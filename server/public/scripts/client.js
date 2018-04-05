@@ -1,4 +1,4 @@
-let TimeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute']);
+let TimeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'angularMoment']);
 
 TimeTrackerApp.config(['$routeProvider', function($routeProvider){
     console.log('config loaded');
