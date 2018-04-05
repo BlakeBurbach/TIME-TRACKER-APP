@@ -1,5 +1,5 @@
-TimeTrackerApp.controller('EntryController', function(){
-    console.log('EntryController loaded');
+TimeTrackerApp.controller('EntriesController', function(){
+    console.log('EntriesController loaded');
     let self = this;
 
     
