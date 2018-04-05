@@ -5,18 +5,18 @@
         <textarea name="newEntryDescription" id="description" cols="30" rows="5"
         ng-model="vm.newEntry.description">
         </textarea><br>
-        <label for="startDate">Start Date:</label>
+        <!-- <label for="startDate">Start Date:</label>
         <input type="date" id="startDate" ng-model="vm.newEntry.startDate">
         <label for="startTime">Start Time: </label>
-        <input type="time" id="startTime" ng-model="vm.newEntry.startTime">
-        <label for="endDate">End Date: </label>
-        <input type="date" id="endDate" ng-model="vm.newEntry.endDate">
-        <label for="endTime">End time: </label>
-        <input type="time" id="endTime" ng-model="vm.newEntry.endTime">
+        <input type="time" id="startTime" ng-model="vm.newEntry.startTime"> -->
+        <label for="start_date">Start Date:</label>
+        <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
+        <label for="end_date">End Date: </label>
+        <input type="datetime-local" id="end_Date" ng-model="vm.newEntry.end_date">
         <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
     </div>
-    <p>{{vm.newEntry.startDate | date}}</p>
-    <p>{{vm.newEntry.startTime | date: 'hh:mm a'}}</p>
-    <p>{{vm.newEntry.endDate | date}}</p>
-    <p>{{vm.newEntry.endTime | date: 'hh:mm a'}}</p>
+    <p>{{vm.newEntry.start_date | date: "yyyy-MM-dd hh:mm a"}}</p>
+    <!-- <p>{{vm.newEntry.startTime | date: 'hh:mm a'}}</p> -->
+    <p>{{vm.newEntry.end_date | date: "yyyy-MM-dd hh:mm a"}}</p>
+    <!-- <p>{{vm.newEntry.endTime | date: 'hh:mm a'}}</p> -->
 </div>
