@@ -1,4 +1,4 @@
-const TimeTrackerApp = angular.module('TimerTrackerApp', ['ngRoute']);
+const TimeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute']);
 
 TimeTrackerApp.config(['$routeProvider', function(){
     console.log('config loaded');
