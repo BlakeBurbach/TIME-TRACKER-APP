@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.use(express.static('server/public'));
 
-app.use('/project_entries', projectEntryRouter);
+app.use('/entries', projectEntryRouter);
 
 app.listen(PORT, (req, res)=>{
     console.log(`Server running on port ${PORT}`);

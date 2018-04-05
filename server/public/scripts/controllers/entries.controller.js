@@ -6,4 +6,8 @@ TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', 'moment', 
         console.log('in addEntry', entryToAdd);
         TimeTrackerService.addEntry(entryToAdd);
     }
+
+    self.getEntries = TimeTrackerService.getEntries;
+
+    self.listOfEntries = TimeTrackerService.listOfEntries;
 }]);

@@ -15,7 +15,7 @@ Project Scoping
         - styles
         - vendors
 
-- [] setup HTML skeleton
+- [x] setup HTML skeleton
     - index.html
     - views:
         - entry.html
