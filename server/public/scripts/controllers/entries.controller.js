@@ -3,4 +3,4 @@ TimeTrackerApp.controller('EntryController', function(){
     let self = this;
 
     
-})
+});
