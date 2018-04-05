@@ -15,7 +15,43 @@
         <input type="datetime-local" id="end_Date" ng-model="vm.newEntry.end_date">
         <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
     </div>
-    <div ng-repeat="entry in vm.listOfEntries.list">
-        <span>{{entry.description}}</span><span>{{entry.start_date | date: "yyyy-MM-dd hh:mm a"}}</span><span>{{entry.end_date | date: "yyyy-MM-dd hh:mm a"}}</span>
-    </div>
+    
+    <br>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Task Description
+                </th>
+                <th>
+                    Start Date and Time
+                </th>
+                <th>
+                    End Date and Time
+                </th>
+                <th>
+                    Remove
+                </th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="entry in vm.listOfEntries.list">
+            <tr>
+                <td>
+                    {{entry.description}}
+                </td>
+                <td>
+                    {{entry.start_date | date:'MMMM dd, yyyy'}}<br>
+                    {{entry.start_date | date:'h:mma'}}
+                </td>
+                <td>
+                    {{entry.end_date | date: 'MMMM dd, yyyy'}}<br>
+                    {{entry.start_date | date:'h:mma'}}
+                </td>
+                <td>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
