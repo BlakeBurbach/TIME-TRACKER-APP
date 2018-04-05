@@ -7,10 +7,13 @@ TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', 'moment', 
 
     self.addEntry = function(entryToAdd){
         TimeTrackerService.addEntry(entryToAdd);
+        let newTime = self.newEntry.endTime - self.newEntry.startTime;
+        
         self.newEntry = {
             description: '',
-            date: new Date("MM-DD-YYYY"),
+            date: '',
             startTime: '',
             endTime: ''};
     }
+    // console.log(self.newEntry);
 }]);
