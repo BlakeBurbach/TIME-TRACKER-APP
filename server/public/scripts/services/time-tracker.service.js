@@ -3,6 +3,6 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
     let self = this;
 
     self.addEntry = function(newEntry){
-        console.log('addEntry clicked newEntry', newEntry);
+        console.log('addEntry clicked newEntry');
     }
 }]);

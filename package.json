@@ -19,6 +19,7 @@
   "homepage": "https://github.com/BlakeBurbach/TIME-TRACKER-APP#readme",
   "dependencies": {
     "angular": "^1.6.9",
+    "angular-moment": "^1.2.0",
     "angular-route": "^1.6.9",
     "body-parser": "^1.18.2",
     "express": "^4.16.3",
