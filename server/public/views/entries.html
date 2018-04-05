@@ -1,3 +1,24 @@
 <div>
     <h1>Add an Entry</h1>
+    <div class="inputDiv">
+        <input type="text" placeholder="Description" ng-model="vm.newEntry.description">
+        <input type="date" placeholder="Date" ng-model="vm.newEntry.date">
+        <form>
+            <label for="startTime">Start time: </label>
+            <input type="time" id="startTime" ng-model="vm.newEntry.startTime">
+                <p>
+                Value of the <code>time</code> input: <code>
+                "<span id="value">n/a</span>"</code>.
+                </p>
+        </form>
+        <form>
+            <label for="endTime">End time: </label>
+            <input type="time" id="endTime" ng-model="vm.newEntry.startTime">
+                <p>
+                Value of the <code>time</code> input: <code>
+                "<span id="value">n/a</span>"</code>.
+                </p>
+        </form>
+    </div>
+
 </div>
