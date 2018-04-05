@@ -1,7 +1,12 @@
 <div>
     <h1>Add an Entry</h1>
     <div class="inputDiv">
-        <input type="text" placeholder="Description" ng-model="vm.newEntry.description">
+        <div class="descriptionInput">
+            <label for="description">Add a description of task:</label><br>
+            <textarea name="newEntryDescription" id="description" cols="30" rows="10"
+            ng-model="vm.newEntry.description">
+            </textarea>
+        </div>
         <input type="date" placeholder="Date" ng-model="vm.newEntry.date">
         <form>
             <label for="startTime">Start time: </label>
@@ -13,12 +18,13 @@
         </form>
         <form>
             <label for="endTime">End time: </label>
-            <input type="time" id="endTime" ng-model="vm.newEntry.startTime">
+            <input type="time" id="endTime" ng-model="vm.newEntry.endTime">
                 <p>
                 Value of the <code>time</code> input: <code>
                 "<span id="value">n/a</span>"</code>.
                 </p>
         </form>
+        <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
     </div>
 
 </div>
