@@ -16,6 +16,10 @@ TimeTrackerApp.config(['$routeProvider', function($routeProvider){
             templateUrl: '/views/projects.html',
             controller: 'ProjectsController as vm'
         })
+        .when('/reports', {
+            templateUrl: '/views/reports.html',
+            controller: 'ReportsController as vm'
+        })
         .otherwise({
             template: '<h1>404 Not Found</h1>'
         });

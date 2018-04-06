@@ -1,15 +1,10 @@
 <div>
     <h1>All Projects</h1>
     <div class="inputDiv">
-            <label for="description">Add a description of task:</label><br>
-            <textarea name="newEntryDescription" id="description" cols="30" rows="5"
-            ng-model="vm.newEntry.description">
-            </textarea><br>
-            <label for="start_date">Start Date:</label>
-            <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
-            <label for="end_date">End Date: </label>
-            <input type="datetime-local" id="end_Date" ng-model="vm.newEntry.end_date">
-            <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
+            <label for="description">Add a Project: </label><br>
+            <input type="text" id="projectDescription" ng-model="vm.newProject.description">
+            <input type="text" id="projectClient" ng-model="vm.newProject.client">
+            <button ng-click="vm.addProject(vm.newProject)">Add Project</button>
         </div>   
         <br>
         <hr>
@@ -17,31 +12,29 @@
             <thead>
                 <tr>
                     <th>
-                        Task Description
+                        Client
                     </th>
                     <th>
-                        Start Date and Time
+                        Project Description
                     </th>
                     <th>
-                        End Date and Time
+                        Total Hours
                     </th>
                     <th>
                         Remove
                     </th>
                 </tr>
             </thead>
-            <tbody ng-repeat="entry in vm.listOfEntries.list">
+            <tbody ng-repeat="project in vm.projectList.list">
                 <tr>
                     <td>
-                        {{entry.description}}
+                        {{project.client}}
                     </td>
                     <td>
-                        {{entry.start_date | date:'MMMM dd, yyyy'}}<br>
-                        {{entry.start_date | date:'h:mma'}}
+                        {{project.project_description}}
                     </td>
                     <td>
-                        {{entry.end_date | date: 'MMMM dd, yyyy'}}<br>
-                        {{entry.start_date | date:'h:mma'}}
+                        {{project.total_hours}}
                     </td>
                     <td>
                         <button>Delete</button>
