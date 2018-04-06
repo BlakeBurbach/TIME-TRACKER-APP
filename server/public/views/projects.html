@@ -1,3 +1,52 @@
 <div>
     <h1>All Projects</h1>
-</div>
+    <div class="inputDiv">
+            <label for="description">Add a description of task:</label><br>
+            <textarea name="newEntryDescription" id="description" cols="30" rows="5"
+            ng-model="vm.newEntry.description">
+            </textarea><br>
+            <label for="start_date">Start Date:</label>
+            <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
+            <label for="end_date">End Date: </label>
+            <input type="datetime-local" id="end_Date" ng-model="vm.newEntry.end_date">
+            <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
+        </div>   
+        <br>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Task Description
+                    </th>
+                    <th>
+                        Start Date and Time
+                    </th>
+                    <th>
+                        End Date and Time
+                    </th>
+                    <th>
+                        Remove
+                    </th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="entry in vm.listOfEntries.list">
+                <tr>
+                    <td>
+                        {{entry.description}}
+                    </td>
+                    <td>
+                        {{entry.start_date | date:'MMMM dd, yyyy'}}<br>
+                        {{entry.start_date | date:'h:mma'}}
+                    </td>
+                    <td>
+                        {{entry.end_date | date: 'MMMM dd, yyyy'}}<br>
+                        {{entry.start_date | date:'h:mma'}}
+                    </td>
+                    <td>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

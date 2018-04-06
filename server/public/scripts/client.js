@@ -1,4 +1,4 @@
-let TimeTrackerApp = angular.module('TimeTrackerApp', ['ngMaterialDatePicker', 'mdPickers', 'ngRoute', 'ngMaterial']);
+let TimeTrackerApp = angular.module('TimeTrackerApp', ['ngRoute', 'ngMaterial']);
 
 TimeTrackerApp.config(['$routeProvider', function($routeProvider){
     console.log('config loaded');
