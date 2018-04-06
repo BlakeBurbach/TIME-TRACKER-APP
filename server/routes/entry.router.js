@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-// POST function to send user's project entries to database
+// POST function to send user's task descriptions to database
 router.post('/', (req, res) => {
     console.log('POST /entries route');
     let entryToAdd = req.body;
-    // add user's entry data to time_tracker database under project_entries
+    // add user's entry data to time_tracker database under entries
     let queryText = `INSERT INTO entries (description, start_date, end_date)
                      VALUES ($1, $2, $3);`
     pool.query(queryText, [entryToAdd.description, entryToAdd.start_date, entryToAdd.end_date])
