@@ -5,7 +5,7 @@
         <select id="projectPicker" ng-model="vm.newEntry.project_id">
             <option disabled>None</option>
             <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">
-                {{project.project_description}}
+                {{project.project_description}} / {{project.client}}
             </option>
         </select><br>
         <label for="description">Add a description of task:</label><br>
@@ -15,7 +15,7 @@
         <label for="start_date">Start Date:</label>
         <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
         <label for="end_date">End Date: </label>
-        <input type="datetime-local" id="end_Date" ng-model="vm.newEntry.end_date">
+        <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
         <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
     </div>   
     <br>
@@ -23,6 +23,9 @@
     <table>
         <thead>
             <tr>
+                <th>
+                    Client
+                </th>
                 <th>
                     Task Description
                 </th>
@@ -43,21 +46,24 @@
         <tbody ng-repeat="entry in vm.listOfEntries.list">
             <tr>
                 <td>
-                    {{entry.description}}
+                    {{entry.project_client}}
                 </td>
                 <td>
-                    {{entry.start_date | date:'MMMM dd, yyyy'}}<br>
+                    {{entry.entry_desc}}
+                </td>
+                <td>
+                    {{entry.start_date | date:'MMMM dd, yyyy'}}<br><hr>
                     {{entry.start_date | date:'h:mma'}}
                 </td>
                 <td>
-                    {{entry.end_date | date: 'MMMM dd, yyyy'}}<br>
+                    {{entry.end_date | date: 'MMMM dd, yyyy'}}<br><hr>
                     {{entry.end_date | date:'h:mma'}}
                 </td>
                 <td>
-                    {{entry.total_time}}
+                    {{entry.total_time}} hours
                 </td>
                 <td>
-                    <button ng-click="vm.removeEntry(entry.id)">Delete</button>
+                    <button ng-click="vm.removeEntry(entry.entry_id)">Delete</button>
                 </td>
             </tr>
         </tbody>

@@ -22,7 +22,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
     self.getEntries = function(){
         console.log('in getEntries');
         $http.get('/entries').then(function(result){
-            console.log('getEntries GET success', result);
+            console.log('getEntries GET success', result.data);
             self.listOfEntries.list = result.data;
         }).catch(function(error){
             console.log('getEntries GET error', error);
