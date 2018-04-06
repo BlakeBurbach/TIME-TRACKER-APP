@@ -1,10 +1,17 @@
 <div>
     <h1>Add an Entry</h1>
     <div class="inputDiv">
+        <label for="projectPicker">Project: </label>
+        <select id="projectPicker" ng-model="vm.newEntry.project_id">
+            <option disabled>None</option>
+            <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">
+                {{project.project_description}}
+            </option>
+        </select><br>
         <label for="description">Add a description of task:</label><br>
-        <textarea name="newEntryDescription" id="description" cols="30" rows="5"
+        <textarea name="newEntryDescription" id="description" cols="20" rows="5"
         ng-model="vm.newEntry.description">
-        </textarea><br>
+        </textarea>
         <label for="start_date">Start Date:</label>
         <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
         <label for="end_date">End Date: </label>
@@ -26,6 +33,9 @@
                     End Date and Time
                 </th>
                 <th>
+                    Total Time
+                </th>
+                <th>
                     Remove
                 </th>
             </tr>
@@ -41,10 +51,13 @@
                 </td>
                 <td>
                     {{entry.end_date | date: 'MMMM dd, yyyy'}}<br>
-                    {{entry.start_date | date:'h:mma'}}
+                    {{entry.end_date | date:'h:mma'}}
                 </td>
                 <td>
-                    <button>Delete</button>
+                    {{entry.total_time}}
+                </td>
+                <td>
+                    <button ng-click="vm.removeEntry(entry.id)">Delete</button>
                 </td>
             </tr>
         </tbody>

@@ -10,4 +10,9 @@ TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', function(T
     
     // the object with array of entries to display on the DOM
     self.listOfEntries = TimeTrackerService.listOfEntries;
+    // the object of arrays back from database to display on DOM
+    self.projectList = TimeTrackerService.projectList;
+
+    // connecting entry.html delete button to service DELETE request
+    self.removeEntry = TimeTrackerService.removeEntry;
 }]);

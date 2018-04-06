@@ -24,11 +24,25 @@ router.get('/', (req, res) => {
     console.log('GET /projects route');
     const queryText = `SELECT * FROM projects;`;
     pool.query(queryText).then(result => {
+        console.log('Succes in GET /projects');
         res.send(result.rows);
     }).catch(error => {
         console.log('ERROR - GET /projects -', error);
         res.sendStatus(500);
     }); // end pool.query
 }); // end router.get
+
+// projects DELETE request to delete from database
+router.delete('/:id', (req, res) => {
+    const projectId = req.params.id;
+    const queryText =  `DELETE FROM projects WHERE id = $1;`;
+    pool.query(queryText, [projectId]).then(result => {
+        console.log('success DELETE /projects');
+        res.sendStatus(200);
+    }).catch(error => {
+        console.log('ERROR - DELETE /projects - ', error);
+        res.sendStatus(500);
+    })
+})
 
 module.exports = router;

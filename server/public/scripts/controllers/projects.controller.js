@@ -10,4 +10,7 @@ TimeTrackerApp.controller('ProjectsController', ['TimeTrackerService', function(
 
     // the object of arrays back from database to display on DOM
     self.projectList = TimeTrackerService.projectList;
+
+    // connecting project.html delete button to service DELETE request
+    self.removeProject = TimeTrackerService.removeProject;
 }]);

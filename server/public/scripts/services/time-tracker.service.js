@@ -30,6 +30,17 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
     } // end getEntries
     self.getEntries(); // call upon page load
 
+    // DELETE request to delete project from database
+    self.removeEntry = function(entryId){
+        console.log('In removeEntry');
+        $http.delete(`/entries/${entryId}`).then(function(result){
+            console.log('removeEntry DELETE success', result);
+            self.getEntries();
+        }).catch(function(error){
+            console.log('removeEntry DELETE ERROR', error);
+        }); // end $http DELETE route
+    } // end removeEntry
+
 
     // ---------------------------------------- ProjectsController Functions -----------------------------------------
 
@@ -38,10 +49,13 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         console.log('In addProject with new project', newProject);
         $http.post('/projects', newProject).then(function(result){
             console.log('addProject POST success', result);
+            self.getProjects();
         }).catch(function(error){
             console.log('addProject POST ERROR', error);
         }); // end $http POST route
     } // end addProjects
+
+    self.projectList = {list: []};
 
     // GET request to retrieve project data from the database
     self.getProjects = function(){
@@ -53,5 +67,16 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
             console.log('getProjects GET ERROR', error);
         }); // end $http GET route
     } // end getProjects
-    
+    self.getProjects();
+
+    // DELETE request to delete project from database
+    self.removeProject = function(projectId){
+        console.log('In removeProject');
+        $http.delete(`/projects/${projectId}`).then(function(result){
+            console.log('removeProject DELETE success', result);
+            self.getProjects();
+        }).catch(function(error){
+            console.log('removeProject DELETE ERROR', error);
+        })
+    }
 }]);
