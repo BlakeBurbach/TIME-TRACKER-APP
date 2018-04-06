@@ -1,4 +1,4 @@
-TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', 'moment', function(TimeTrackerService, moment){
+TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', function(TimeTrackerService){
     console.log('EntriesController loaded');
     let self = this;
 

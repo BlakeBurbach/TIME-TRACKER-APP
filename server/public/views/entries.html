@@ -5,17 +5,12 @@
         <textarea name="newEntryDescription" id="description" cols="30" rows="5"
         ng-model="vm.newEntry.description">
         </textarea><br>
-        <!-- <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" ng-model="vm.newEntry.startDate">
-        <label for="startTime">Start Time: </label>
-        <input type="time" id="startTime" ng-model="vm.newEntry.startTime"> -->
         <label for="start_date">Start Date:</label>
         <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
         <label for="end_date">End Date: </label>
         <input type="datetime-local" id="end_Date" ng-model="vm.newEntry.end_date">
         <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
-    </div>
-    
+    </div>   
     <br>
     <hr>
     <table>
