@@ -22,7 +22,10 @@ router.post('/', (req, res) => {
 // projects GET route
 router.get('/', (req, res) => {
     console.log('GET /projects route');
-    const queryText = `SELECT * FROM projects;`;
+    const queryText = `SELECT projects.id, projects.project_description, projects.client, SUM(DATE_PART('day', end_date - start_date) * 24 + 
+    DATE_PART('hour', end_date - start_date)) as total_time FROM entries
+    JOIN projects ON entries.projects_id = projects.id
+    GROUP BY projects.id, projects.project_description, projects.client;`;
     pool.query(queryText).then(result => {
         console.log('Succes in GET /projects');
         res.send(result.rows);
@@ -44,5 +47,6 @@ router.delete('/:id', (req, res) => {
         res.sendStatus(500);
     })
 })
+
 
 module.exports = router;

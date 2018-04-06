@@ -11,6 +11,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         .then(function(result){
             console.log('addEntry POST success', result);
             self.getEntries();
+            self.getProjects();
         }).catch(function(error){
             console.log('addEntry POST error', error);
         }) // end $http POST route

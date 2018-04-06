@@ -13,7 +13,7 @@
             <label>Client</label>
             <input type="text" ng-model="vm.newProject.client">
         </md-input-container>
-            <md-button ng-click="vm.addProject(vm.newProject)">
+            <md-button ng-click="vm.addProject(vm.newProject); get">
               Add Project
             </md-button>
         </div>   
@@ -28,9 +28,9 @@
                     <th>
                         Project Description
                     </th>
-                    <!-- <th> -->
-                        <!-- Total Hours -->
-                    <!-- </th> -->
+                    <th>
+                        Total Hours
+                    </th> 
                     <th>
                         Remove
                     </th>
@@ -44,9 +44,8 @@
                     <td>
                         {{project.project_description}}
                     </td>
-                    <!-- <td> -->
-                        <!-- {{project.total_hours}} -->
-                    <!-- </td> -->
+                    <td>
+                        {{project.total_time}} hours
                     <td>
                         <button ng-click="vm.removeProject(project.id)">Delete</button>
                     </td>
