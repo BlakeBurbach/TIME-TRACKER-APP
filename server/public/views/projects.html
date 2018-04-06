@@ -1,10 +1,22 @@
 <div>
     <h1>All Projects</h1>
     <div class="inputDiv">
-            <label for="description">Add a Project: </label><br>
-            <input type="text" id="projectDescription" placeholder="Project" ng-model="vm.newProject.project_description">
-            <input type="text" id="projectClient" placeholder="Client" ng-model="vm.newProject.client">
-            <button ng-click="vm.addProject(vm.newProject)">Add Project</button>
+            <!-- <md-input-container>
+                    <label>Username</label>
+                    <input type="text" ng-model="user.name">
+                  </md-input-container> -->
+        <md-input-container>
+            <label>Project</label>
+            <input type="text" ng-model="vm.newProject.project_description">
+        </md-input-container>
+        <md-input-container>
+            <label>Client</label>
+            <input type="text" ng-model="vm.newProject.client">
+        </md-input-container>
+            <md-button ng-click="vm.addProject(vm.newProject);
+             vm.newProject = null;">
+              Add Project
+            </md-button>
         </div>   
         <br>
         <hr>
@@ -17,9 +29,9 @@
                     <th>
                         Project Description
                     </th>
-                    <th>
-                        Total Hours
-                    </th>
+                    <!-- <th> -->
+                        <!-- Total Hours -->
+                    <!-- </th> -->
                     <th>
                         Remove
                     </th>
@@ -33,9 +45,9 @@
                     <td>
                         {{project.project_description}}
                     </td>
-                    <td>
-                        {{project.total_hours}}
-                    </td>
+                    <!-- <td> -->
+                        <!-- {{project.total_hours}} -->
+                    <!-- </td> -->
                     <td>
                         <button ng-click="vm.removeProject(project.id)">Delete</button>
                     </td>

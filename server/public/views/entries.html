@@ -1,13 +1,14 @@
 <div>
     <h1>Add an Entry</h1>
     <div class="inputDiv">
-        <label for="projectPicker">Project: </label>
-        <select id="projectPicker" ng-model="vm.newEntry.project_id">
-            <option disabled>None</option>
-            <option ng-repeat="project in vm.projectList.list" value="{{project.id}}">
-                {{project.project_description}} / {{project.client}}
-            </option>
-        </select><br>
+        <md-input-container>
+            <label>Project</label>
+            <md-select ng-model="vm.newEntry.project_id">
+                <md-option ng-value="project" ng-repeat="project in vm.projectList.list">
+                    {{project.project_description}} / {{project.client}}
+                </md-option>
+            </md-select>
+        </md-input-container><br>
         <label for="description">Add a description of task:</label><br>
         <textarea name="newEntryDescription" id="description" cols="20" rows="5"
         ng-model="vm.newEntry.description">
@@ -16,7 +17,7 @@
         <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
         <label for="end_date">End Date: </label>
         <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
-        <button ng-click="vm.addEntry(vm.newEntry)">Add Entry</button>
+        <md-button ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
     </div>   
     <br>
     <hr>
@@ -64,7 +65,7 @@
                     {{entry.total_time}} hours
                 </td>
                 <td>
-                    <button ng-click="vm.removeEntry(entry.entry_id)">Delete</button>
+                    <md-button ng-click="vm.removeEntry(entry.entry_id)">Delete</md-button>
                 </td>
             </tr>
         </tbody>
