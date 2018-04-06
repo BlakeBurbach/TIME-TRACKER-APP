@@ -2,18 +2,23 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
     console.log('TimeTrackerService loaded');
     let self = this;
 
+    //---------------------------------------  EntryController Functions -----------------------------------------
+
+    // POST request for sending entry data to database
     self.addEntry = function(newEntry){
         console.log('addEntry clicked', newEntry);
         $http.post('/entries', newEntry)
         .then(function(result){
             console.log('addEntry POST success', result);
+            self.getEntries();
         }).catch(function(error){
             console.log('addEntry POST error', error);
-        }) // end post route
+        }) // end $http POST route
     } // end addEntry
 
     self.listOfEntries = {list: []};
 
+    // GET request for retrieving entry data from database
     self.getEntries = function(){
         console.log('in getEntries');
         $http.get('/entries').then(function(result){
@@ -21,7 +26,32 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
             self.listOfEntries.list = result.data;
         }).catch(function(error){
             console.log('getEntries GET error', error);
-        })
-    }
-    self.getEntries();
+        }); // end $http GET route
+    } // end getEntries
+    self.getEntries(); // call upon page load
+
+
+    // ---------------------------------------- ProjectsController Functions -----------------------------------------
+
+    // POST request for send project data to database
+    self.addProject = function(newProject){
+        console.log('In addProject with new project', newProject);
+        $http.post('/projects', newProject).then(function(result){
+            console.log('addProject POST success', result);
+        }).catch(function(error){
+            console.log('addProject POST ERROR', error);
+        }); // end $http POST route
+    } // end addProjects
+
+    // GET request to retrieve project data from the database
+    self.getProjects = function(){
+        console.log('in getProjects');
+        $http.get('/projects').then(function(result){
+            console.log('getProjects GET success', result);
+            self.projectList.list = result.data;
+        }).catch(function(error){
+            console.log('getProjects GET ERROR', error);
+        }); // end $http GET route
+    } // end getProjects
+    
 }]);

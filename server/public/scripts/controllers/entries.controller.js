@@ -2,12 +2,12 @@ TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', function(T
     console.log('EntriesController loaded');
     let self = this;
 
-    self.addEntry = function(entryToAdd){
-        console.log('in addEntry', entryToAdd);
-        TimeTrackerService.addEntry(entryToAdd);
-    }
+    // connecting html inputs and buttons to service POST request
+    self.addEntry = TimeTrackerService.addEntry;
 
+    // connecting html table to service GET request for all entries in database
     self.getEntries = TimeTrackerService.getEntries;
-
+    
+    // the object with array of entries to display on the DOM
     self.listOfEntries = TimeTrackerService.listOfEntries;
 }]);
