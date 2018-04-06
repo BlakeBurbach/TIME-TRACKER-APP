@@ -9,10 +9,13 @@
                 </md-option>
             </md-select>
         </md-input-container><br>
-        <label for="description">Add a description of task:</label><br>
-        <textarea name="newEntryDescription" id="description" cols="20" rows="5"
-        ng-model="vm.newEntry.description">
-        </textarea>
+        <container layout="row">
+                <md-input-container layout="row">
+                        <label>Add a description of task:</label><br>
+                        <input max-rows="15"
+                        ng-model="vm.newEntry.description">
+                    </md-input-container>
+        </container>
         <label for="start_date">Start Date:</label>
         <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
         <label for="end_date">End Date: </label>
