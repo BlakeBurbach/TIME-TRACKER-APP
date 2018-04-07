@@ -1,4 +1,9 @@
+body{
+      font-family: 'Raleway', sans-serif;
+}
+
 table {
+    font-family: 'Inconsolata', monospace;  
     margin: 25px auto;
     border-collapse: collapse;
     border: 1px solid #eee;

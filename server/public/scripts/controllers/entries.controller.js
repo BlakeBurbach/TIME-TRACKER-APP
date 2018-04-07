@@ -7,6 +7,7 @@ TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', function(T
 
     // connecting html table to service GET request for all entries in database
     self.getEntries = TimeTrackerService.getEntries;
+    self.getProjects = TimeTrackerService.getProjects;
     
     // the object with array of entries to display on the DOM
     self.listOfEntries = TimeTrackerService.listOfEntries;

@@ -37,6 +37,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         $http.delete(`/entries/${entryId}`).then(function(result){
             console.log('removeEntry DELETE success', result);
             self.getEntries();
+            self.getProjects();
         }).catch(function(error){
             console.log('removeEntry DELETE ERROR', error);
         }); // end $http DELETE route
