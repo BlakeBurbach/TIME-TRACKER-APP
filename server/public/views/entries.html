@@ -1,73 +1,85 @@
-<div>
-    <h1>Add an Entry</h1>
-    <div class="inputDiv">
-        <md-input-container>
-            <label>Project</label>
-            <md-select ng-model="vm.newEntry.project_id">
-                <md-option><em>None</em></md-option>
-                <md-option ng-repeat="project in vm.projectList.list" ng-value="{{project.id}}">
-                    {{project.project_description}} / {{project.client}}
-                </md-option>
-            </md-select>
-        </md-input-container>
-        <md-input-container class="md-block">
-                <label>Add a description of task</label>
-                <input ng-model="vm.newEntry.description">
-        </md-input-container>
-        <label for="start_date">Start Date:</label>
-        <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
-        <label for="end_date">End Date: </label>
-        <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
-        <md-button ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
-    </div>   
-    <br>
-    <hr>
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    Client
-                </th>
-                <th>
-                    Task Description
-                </th>
-                <th>
-                    Start Date and Time
-                </th>
-                <th>
-                    End Date and Time
-                </th>
-                <th>
-                    Total Time
-                </th>
-                <th>
-                    Remove
-                </th>
-            </tr>
-        </thead>
-        <tbody ng-repeat="entry in vm.listOfEntries.list">
-            <tr>
-                <td>
-                    {{entry.project_client}}
-                </td>
-                <td>
-                    {{entry.entry_desc}}
-                </td>
-                <td>
-                    {{entry.start_date | date:'MMMM dd, yyyy'}}<br><hr>
-                    {{entry.start_date | date:'h:mma'}}
-                </td>
-                <td>
-                    {{entry.end_date | date: 'MMMM dd, yyyy'}}<br><hr>
-                    {{entry.end_date | date:'h:mma'}}
-                </td>
-                <td>
-                    {{entry.total_time}} hours
-                </td>
-                <td>
-                    <md-button ng-click="vm.removeEntry(entry.entry_id)">Delete</md-button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<md-content flex layout="column">
+<div id="entries" layout="row" ng-cloak>
+    <!-- <md-content class="md-primary md-hue-2">
+        <h2>Add an Entry</h2>
+    </md-content> -->
+        <div class="inputDiv" layout="column" layout-align="center end">
+                    <md-input-container>
+                        <label>Project</label>
+                        <md-select ng-model="vm.newEntry.project_id" class="md-accent md-hue-2">
+                            <md-option><em>None</em></md-option>
+                            <md-option ng-repeat="project in vm.projectList.list" ng-value="{{project.id}}">
+                                {{project.project_description}} / {{project.client}}
+                            </md-option>
+                        </md-select>
+                    </md-input-container>
+                    <br>
+                    <md-input-container class="md-block md-accent md-hue-2">
+                        <label>Task Description</label>
+                        <input ng-model="vm.newEntry.description">
+                    </md-input-container>
+                    <div>
+                    <md-input-container class="md-accent md-hue-2">
+                        <label>Start Date</label>
+                        <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
+                    </md-input-container>
+                    <md-input-container class="md-accent md-hue-2">
+                        <label>End Date</label>
+                        <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
+                    </md-input-container>
+                </div>
+            <md-button class="md-accent md-raised" ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
+         </div>  
+         <md-divider></md-divider>
+    <div class="tableDiv">
+            <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Client
+                            </th>
+                            <th>
+                                Task Description
+                            </th>
+                            <th>
+                                Start Date and Time
+                            </th>
+                            <th>
+                                End Date and Time
+                            </th>
+                            <th>
+                                Total Time
+                            </th>
+                            <th>
+                                Remove
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="entry in vm.listOfEntries.list">
+                        <tr>
+                            <td>
+                                {{entry.project_client}}
+                            </td>
+                            <td>
+                                {{entry.entry_desc}}
+                            </td>
+                            <td>
+                                {{entry.start_date | date:'MMMM dd, yyyy'}}<br><hr>
+                                {{entry.start_date | date:'h:mma'}}
+                            </td>
+                            <td>
+                                {{entry.end_date | date: 'MMMM dd, yyyy'}}<br><hr>
+                                {{entry.end_date | date:'h:mma'}}
+                            </td>
+                            <td>
+                                {{entry.total_time}} hours
+                            </td>
+                            <td>
+                                <md-button class="md-warn md-raised" ng-click="vm.removeEntry(entry.entry_id)">Delete</md-button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
 </div>
+</md-content>

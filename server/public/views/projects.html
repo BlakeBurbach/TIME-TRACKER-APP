@@ -1,10 +1,6 @@
 <div>
-    <h1>All Projects</h1>
+    <h2>All Projects</h2>
     <div class="inputDiv">
-            <!-- <md-input-container>
-                    <label>Username</label>
-                    <input type="text" ng-model="user.name">
-                  </md-input-container> -->
         <md-input-container>
             <label>Project</label>
             <input type="text" ng-model="vm.newProject.project_description">
@@ -19,37 +15,39 @@
         </div>   
         <br>
         <hr>
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        Client
-                    </th>
-                    <th>
-                        Project Description
-                    </th>
-                    <th>
-                        Total Hours
-                    </th> 
-                    <th>
-                        Remove
-                    </th>
-                </tr>
-            </thead>
-            <tbody ng-repeat="project in vm.projectList.list">
-                <tr>
-                    <td>
-                        {{project.client}}
-                    </td>
-                    <td>
-                        {{project.project_description}}
-                    </td>
-                    <td>
-                        {{project.total_time}} hours
-                    <td>
-                        <md-button ng-click="vm.removeProject(project.id)">Delete</md-button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div>
+                <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Client
+                                </th>
+                                <th>
+                                    Project Description
+                                </th>
+                                <th>
+                                    Total Hours
+                                </th> 
+                                <th>
+                                    Remove
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="project in vm.projectList.list">
+                            <tr>
+                                <td>
+                                    {{project.client}}
+                                </td>
+                                <td>
+                                    {{project.project_description}}
+                                </td>
+                                <td>
+                                    {{project.total_time}} hours
+                                <td>
+                                    <md-button ng-click="vm.removeProject(project.id)">Delete</md-button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </div>
     </div>

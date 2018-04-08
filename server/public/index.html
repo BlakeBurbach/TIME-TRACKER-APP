@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cantarell:400i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
 
@@ -31,12 +32,17 @@
     <link rel="stylesheet" href="styles/styles.css">
     <title>Time Tracker App</title>
 </head>
-<body ng-app="TimeTrackerApp">
-    <h1>Time Tracker App</h1>
+<body ng-app="TimeTrackerApp" layout="column" >
+    <md-toolbar class="md-block md-primary md-hue-3">
+        <h1>Time Tracker App</h1>
+    </md-toolbar>
+
     <div ng-include=" '/views/templates/nav.html' "></div>
+
 
     <main ng-view>
         <!-- Entries and Projects html will go here -->
     </main>
+
 </body>
 </html>
