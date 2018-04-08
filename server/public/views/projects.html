@@ -1,6 +1,6 @@
 <md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3">
     <div flex="80" class="navBtn">
-            <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px;" ng-click="vm.projectShow = !vm.projectShow">Add a Project</md-button>
+            <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px; color: rgb(174, 248, 231);" ng-click="vm.projectShow = !vm.projectShow">Add a Project</md-button>
     </div>
 </md-tooldbar>
 <md-content flex="66" layout="column">
@@ -8,15 +8,15 @@
     <div ng-show="vm.projectShow">
     <div class="md-primary md-hue-3">
         <md-toolbar layout="row">
-        <md-input-container class="md-accent md-hue-2">
+        <md-input-container class="md-accent" flex>
             <label>Project</label>
             <input type="text" ng-model="vm.newProject.project_description">
         </md-input-container>
-        <md-input-container class="md-accent md-hue-2">
+        <md-input-container class="md-accent" flex>
             <label>Client</label>
             <input type="text" ng-model="vm.newProject.client">
         </md-input-container>
-        <md-input-container class="md-accent md-hue-2">
+        <md-input-container class="md-accent" flex>
             <label>Hourly Rate</label>
             <input type="number" ng-model="vm.newProject.hourly_rate">
         </md-input-container>
@@ -27,7 +27,7 @@
 </div> 
 </md-content> 
 <hr>
-        <div class="views">
+        <div class="views" flex layout-sm="300px" layout-xs="40px">
                 <table>
                         <thead>
                             <tr>

@@ -3,6 +3,10 @@ h1{
       color: rgb(174, 248, 231);
 }
 
+md-content{
+      background-color: rgb(97, 124, 140);
+}
+
 body{
       font-family: 'Raleway', sans-serif;
 }
@@ -11,7 +15,7 @@ table {
     font-family: 'Inconsolata', monospace;  
     margin: 20px auto;
     border-collapse: collapse;
-    border: 1px solid #eee;
+    border: 1px solid rgb(70, 70, 70);
     /* border-bottom: 2px solid #607D8B */
     ;
     box-shadow: 0px 0px 20px rgba(0,0,0,0.10),

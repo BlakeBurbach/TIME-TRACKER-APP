@@ -1,6 +1,6 @@
 <md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3 md-raised">
     <div flex="80">
-        <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px;" ng-click="vm.taskShow = !vm.taskShow">Add a Task</md-button>
+        <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px; color: rgb(174, 248, 231);" ng-click="vm.taskShow = !vm.taskShow">Add a Task</md-button>
     </div>
 </md-tooldbar>
 <md-content flex="66" layout="column">
@@ -8,24 +8,25 @@
     <div ng-show="vm.taskShow">
     <md-content class="md-primary md-hue-3">
         <md-toolbar layout="row">
-                    <md-input-container>
+                    <md-input-container flex>
                         <label>Project</label>
-                        <md-select ng-model="vm.newEntry.project_id" class="md-accent md-hue-2">
+                        <md-select ng-model="vm.newEntry.project_id" class="md-accent">
                             <md-option ng-repeat="project in vm.projectList.list" ng-value="{{project.id}}">
                                 {{project.project_description}} / {{project.client}}
                             </md-option>
                         </md-select>
                     </md-input-container>
-                    <br>
-                    <md-input-container class="md-accent md-hue-2">
+                    
+                    <md-input-container class="md-accent" flex>
                         <label>Task Description</label>
                         <input ng-model="vm.newEntry.description">
                     </md-input-container>
-                    <md-input-container class="md-accent md-hue-2">
+                
+                    <md-input-container class="md-accent" flex>
                         <label>Start Date</label>
                         <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
                     </md-input-container>
-                    <md-input-container class="md-accent md-hue-2">
+                    <md-input-container class="md-accent" flex>
                         <label>End Date</label>
                         <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
                     </md-input-container>
