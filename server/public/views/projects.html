@@ -1,6 +1,6 @@
 <md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3">
     <div flex="80" class="navBtn">
-            <md-button ng-click="vm.projectShow = !vm.projectShow">Add a Project</md-button>
+            <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px;" ng-click="vm.projectShow = !vm.projectShow">Add a Project</md-button>
     </div>
 </md-tooldbar>
 <md-content flex="66" layout="column">
@@ -20,7 +20,7 @@
             <label>Hourly Rate</label>
             <input type="number" ng-model="vm.newProject.hourly_rate">
         </md-input-container>
-            <md-button class="md-accent" ng-click="vm.addProject(vm.newProject); get">
+            <md-button class="md-accent md-hue-3" ng-click="vm.addProject(vm.newProject); get">
               Add Project
             </md-button>
     </div> 

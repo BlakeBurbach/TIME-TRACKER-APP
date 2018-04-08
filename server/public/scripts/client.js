@@ -6,18 +6,20 @@ TimeTrackerApp.config(function($mdThemingProvider) {
       .primaryPalette('blue-grey', {
         'default': '200', 
         'hue-1': '500', 
-        'hue-2': '50', 
+        'hue-2': '100', 
         'hue-3': '900', 
       })
 
       .accentPalette('teal', {
         'default': 'A200',
-        'hue-1': 'A100',
-        'hue-2': 'A700'
+        'hue-1': '50',
+        'hue-2': 'A700',
+        'hue-3': '800'
     })
         
       .warnPalette('red', {
-          'default': '300'
+          'default': '300',
+          'hue-1': '100'
     })
     });
 

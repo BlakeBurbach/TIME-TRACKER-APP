@@ -1,6 +1,6 @@
 <md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3 md-raised">
     <div flex="80">
-        <md-button ng-click="vm.taskShow = !vm.taskShow">Add a Task</md-button>
+        <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px;" ng-click="vm.taskShow = !vm.taskShow">Add a Task</md-button>
     </div>
 </md-tooldbar>
 <md-content flex="66" layout="column">
@@ -29,7 +29,7 @@
                         <label>End Date</label>
                         <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
                     </md-input-container>
-                    <md-button class="md-accent" ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
+                    <md-button class="md-accent md-hue-3" ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
         </md-toolbar>
 </div> 
 </md-content>

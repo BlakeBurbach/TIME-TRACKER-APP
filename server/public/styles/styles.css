@@ -1,5 +1,6 @@
 h1{
       font-family: 'Cantarell', sans-serif;
+      color: rgb(174, 248, 231);
 }
 
 body{
@@ -22,14 +23,14 @@ th, td {
       background-color: #ECEFF1;
       color: #424242;
       border: 1px solid #eee;
-      padding: 10px 20px;
+      padding: 10px 15px;
       border-collapse: collapse;
 }
 th {
       background: #607D8B;
       color: #e0e0e0;
       text-transform: uppercase;
-      font-size: 12px;
+      font-size: 18px;
 }
 
 #start_date #end_date[input]{
