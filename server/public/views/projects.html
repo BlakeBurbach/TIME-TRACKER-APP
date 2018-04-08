@@ -1,18 +1,24 @@
 <div>
-    <h2>All Projects</h2>
-    <div class="inputDiv">
-        <md-input-container>
+    <div>
+        <h2>All Projects</h2>
+    </div>
+    <div class="md-primary md-hue-2">
+        <md-input-container class="md-accent md-hue-2">
             <label>Project</label>
             <input type="text" ng-model="vm.newProject.project_description">
         </md-input-container>
-        <md-input-container>
+        <md-input-container class="md-accent md-hue-2">
             <label>Client</label>
             <input type="text" ng-model="vm.newProject.client">
         </md-input-container>
-            <md-button ng-click="vm.addProject(vm.newProject); get">
+        <md-input-container class="md-accent md-hue-2">
+            <label>Hourly Rate</label>
+            <input type="number" ng-model="vm.newProject.hourly_rate">
+        </md-input-container>
+            <md-button class="md-accent" ng-click="vm.addProject(vm.newProject); get">
               Add Project
             </md-button>
-        </div>   
+    </div>   
         <br>
         <hr>
         <div>
@@ -57,7 +63,7 @@
                                     {{project.total_earnings | currency}}
                                 </td>
                                 <td>
-                                    <md-button ng-click="vm.removeProject(project.id)">Delete</md-button>
+                                    <md-button class="md-warn md-raised" ng-click="vm.removeProject(project.id)">Delete</md-button>
                                 </td>
                             </tr>
                         </tbody>

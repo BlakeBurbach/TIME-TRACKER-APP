@@ -7,9 +7,9 @@ router.post('/', (req, res) => {
     console.log('POST /entries route');
     let projectToAdd = req.body;
     // add user's entry data to time_tracker database under projects
-    let queryText = `INSERT INTO projects (project_description, client)
-                     VALUES ($1, $2);`
-    pool.query(queryText, [projectToAdd.project_description, projectToAdd.client])
+    let queryText = `INSERT INTO projects (project_description, client, hourly_rate)
+                     VALUES ($1, $2, $3);`
+    pool.query(queryText, [projectToAdd.project_description, projectToAdd.client, projectToAdd.hourly_rate])
     .then( (result) => {
         console.log('projects router POST success', result);
         res.sendStatus(200);
@@ -37,23 +37,6 @@ router.get('/', (req, res) => {
     }); // end pool.query
 }); // end router.get
 
-// // projects GET route
-// router.get('/totalTime', (req, res) => {
-//     console.log('GET /projects route');
-//     const queryText = `SELECT projects.id, projects.project_description,
-//                         projects.client, SUM(DATE_PART('day', end_date - start_date) * 24 + 
-//                         DATE_PART('hour', end_date - start_date))
-//                         as total_time FROM entries
-//                         JOIN projects ON entries.projects_id = projects.id
-//                         GROUP BY projects.id, projects.project_description, projects.client;`;
-//     pool.query(queryText).then(result => {
-//         console.log('Succes in GET /projects', result.rows);
-//         res.send(result.rows);
-//     }).catch(error => {
-//         console.log('ERROR - GET /projects -', error);
-//         res.sendStatus(500);
-//     }); // end pool.query
-// }); // end router.get
 
 // projects DELETE request to delete from database
 router.delete('/:id', (req, res) => {
