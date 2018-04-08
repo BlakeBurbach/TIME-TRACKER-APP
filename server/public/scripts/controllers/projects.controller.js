@@ -14,4 +14,6 @@ TimeTrackerApp.controller('ProjectsController', ['TimeTrackerService', function(
 
     // connecting project.html delete button to service DELETE request
     self.removeProject = TimeTrackerService.removeProject;
+
+    self.projectShow= false;
 }]);

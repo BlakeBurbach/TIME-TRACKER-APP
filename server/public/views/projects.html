@@ -1,5 +1,13 @@
+<md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3">
+    <div flex="80" class="navBtn">
+            <md-button ng-click="vm.projectShow = !vm.projectShow">Add a Project</md-button>
+    </div>
+</md-tooldbar>
+<md-content flex="66" layout="column">
 <div class="views">
-    <div class="md-primary md-hue-2">
+    <div ng-show="vm.projectShow">
+    <div class="md-primary md-hue-3">
+        <md-toolbar layout="row">
         <md-input-container class="md-accent md-hue-2">
             <label>Project</label>
             <input type="text" ng-model="vm.newProject.project_description">
@@ -15,10 +23,11 @@
             <md-button class="md-accent" ng-click="vm.addProject(vm.newProject); get">
               Add Project
             </md-button>
-    </div>   
-        <br>
-        <hr>
-        <div>
+    </div> 
+</div> 
+</md-content> 
+<hr>
+        <div class="views">
                 <table>
                         <thead>
                             <tr>

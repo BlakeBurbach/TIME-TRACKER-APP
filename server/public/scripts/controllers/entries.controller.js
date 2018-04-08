@@ -16,4 +16,6 @@ TimeTrackerApp.controller('EntriesController', ['TimeTrackerService', function(T
 
     // connecting entry.html delete button to service DELETE request
     self.removeEntry = TimeTrackerService.removeEntry;
+
+    self.taskShow = false;
 }]);

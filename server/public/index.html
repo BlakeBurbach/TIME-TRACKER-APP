@@ -33,14 +33,15 @@
     <title>Time Tracker App</title>
 </head>
 <body ng-app="TimeTrackerApp" layout="column" styles="height:500px;">
-    <md-toolbar class="md-block md-primary md-hue-3" layout-align="center end">
+    <md-toolbar class="md-block md-primary md-hue-3">
         <h1>Time Tracker App</h1>
     </md-toolbar>
 
     <md-content flex layout="column">
-        <div ng-include=" '/views/templates/nav.html' "></div>
-    
-
+        <div>
+            <div ng-include=" '/views/templates/nav.html' "></div>
+        </div>
+        
         <ng-view>
             <!-- Entries and Projects html will go here -->
         </ng-view>

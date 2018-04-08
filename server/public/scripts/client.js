@@ -17,7 +17,7 @@ TimeTrackerApp.config(function($mdThemingProvider) {
     })
         
       .warnPalette('red', {
-          'default': 'A200'
+          'default': '300'
     })
     });
 
