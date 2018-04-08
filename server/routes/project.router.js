@@ -23,9 +23,10 @@ router.post('/', (req, res) => {
 router.get('/', (req, res) => {
     console.log('GET /projects route');
     const queryText = `SELECT SUM(COALESCE((DATE_PART('day', end_date - start_date) * 24 + 
-    DATE_PART('hour', end_date - start_date)),0)) as total_time, projects.client, projects.id, projects.project_description
+    DATE_PART('hour', end_date - start_date)),0)) as total_time, SUM(COALESCE((DATE_PART('day', end_date - start_date) * 24 + 
+    DATE_PART('hour', end_date - start_date)),0)* projects.hourly_rate) as total_earnings, projects.client, projects.id, 		projects.project_description, projects.hourly_rate
     FROM projects LEFT JOIN entries ON projects.id = entries.projects_id
-    GROUP BY projects.id, projects.client, projects.project_description
+    GROUP BY projects.id, projects.client, projects.project_description, projects.hourly_rate
     ORDER BY id ASC;`;
     pool.query(queryText).then(result => {
         console.log('Succes in GET /projects');

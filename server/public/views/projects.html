@@ -29,6 +29,12 @@
                                     Total Hours
                                 </th> 
                                 <th>
+                                    Hourly Rate
+                                </th>
+                                <th>
+                                    Total Earnings
+                                </th>
+                                <th>
                                     Remove
                                 </th>
                             </tr>
@@ -43,6 +49,13 @@
                                 </td>
                                 <td>
                                     {{project.total_time}} hours
+                                </td>    
+                                <td>
+                                    {{project.hourly_rate | currency}}
+                                </td>
+                                <td>
+                                    {{project.total_earnings | currency}}
+                                </td>
                                 <td>
                                     <md-button ng-click="vm.removeProject(project.id)">Delete</md-button>
                                 </td>
