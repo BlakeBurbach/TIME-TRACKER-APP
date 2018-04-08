@@ -44,3 +44,13 @@ th {
 .views{
       background-color: #263238;
 }
+
+.chart-container {
+      width: 600px;
+      height: 600px;
+      
+  }
+
+#myChart{
+      color: white;
+} 
