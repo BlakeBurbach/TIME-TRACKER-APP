@@ -1,13 +1,30 @@
 <md-content>      
-        <md-nav-bar class="md-primary md-hue-1" md-selected-nav-item="currentNavItem" nav-bar-aria-label="Navigation">
+        <md-nav-bar layout-align="start center" class="md-primary md-hue-1" md-selected-nav-item="currentNavItem" nav-bar-aria-label="Navigation">
+                <h2>Navigation</h2>
                 <div flex="80" class="navBtn">
                         <md-nav-item  md-nav-href="/#!/entries" name="Tasks">Tasks</md-nav-item>
                 </div> 
+                
                 <div flex="80" class="navBtn">
                        <md-nav-item md-nav-href="/#!/projects" name="Projects">Projects</md-nav-item>  
                 </div>
+                
                 <div flex="80" class="navBtn">
                       <md-nav-item md-nav-href="/#!/reports" name="Reports">Progress</md-nav-item>  
                 </div>
         </md-nav-bar>
+</md-content>
+<md-content>
+        <md-toolbar layout="row" layout-align="left center"  class="md-primary md-hue-3">
+                <h2>Inputs</h2>
+                <div flex="80" class="navBtn">
+                        <md-button ng-click="vm.showAddTask()">Add a Task</md-button>
+                </div>
+                <div flex="80" class="navBtn">
+                        <md-button ng-click="vm.showAddProjects()">Add a Project</md-button>
+                </div>
+                <div flex="80" class="navBtn">
+                        <md-button ng-click="vm.generateGraph()">Reports on Project Progress</md-button>
+                </div>
+        </md-tooldbar>
 </md-content>

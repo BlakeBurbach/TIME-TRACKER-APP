@@ -1,10 +1,7 @@
-<md-content flex="66" layout="column" layout-align="center end">
-<div id="entries">
-    <md-content class="md-primary md-hue-2">
-        <h2>Add an Entry</h2>
-    </md-content>
+<md-content flex="66" layout="column">
+<div class="views">
     <md-content class="md-primary md-hue-3">
-        <div>
+        <md-toolbar layout="row">
                     <md-input-container>
                         <label>Project</label>
                         <md-select ng-model="vm.newEntry.project_id" class="md-accent md-hue-2">
@@ -27,7 +24,7 @@
                         <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
                     </md-input-container>
                     <md-button class="md-accent" ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
-        </div>
+        </md-toolbar>
     </md-content>  
          <md-divider></md-divider>
     <div class="tableDiv">
