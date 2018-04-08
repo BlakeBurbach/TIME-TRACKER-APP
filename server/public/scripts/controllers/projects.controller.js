@@ -7,6 +7,7 @@ TimeTrackerApp.controller('ProjectsController', ['TimeTrackerService', function(
 
     // connecting project.html table to service GET request
     self.getProjects = TimeTrackerService.getProjects;
+    // self.getProjectsWithTotalTime = TimeTrackerService.getProjectsWithTotalTime;
 
     // the object of arrays back from database to display on DOM
     self.projectList = TimeTrackerService.projectList;

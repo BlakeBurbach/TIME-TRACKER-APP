@@ -22,12 +22,11 @@ router.post('/', (req, res) => {
 // projects GET route
 router.get('/', (req, res) => {
     console.log('GET /projects route');
-    const queryText = `SELECT projects.id, projects.project_description,
-                        projects.client, SUM(DATE_PART('day', end_date - start_date) * 24 + 
-                        DATE_PART('hour', end_date - start_date))
-                        as total_time FROM entries
-                        JOIN projects ON entries.projects_id = projects.id
-                        GROUP BY projects.id, projects.project_description, projects.client;`;
+    const queryText = `SELECT SUM(COALESCE((DATE_PART('day', end_date - start_date) * 24 + 
+    DATE_PART('hour', end_date - start_date)),0)) as total_time, projects.client, projects.id, projects.project_description
+    FROM projects LEFT JOIN entries ON projects.id = entries.projects_id
+    GROUP BY projects.id, projects.client, projects.project_description
+    ORDER BY id ASC;`;
     pool.query(queryText).then(result => {
         console.log('Succes in GET /projects');
         res.send(result.rows);
@@ -36,6 +35,24 @@ router.get('/', (req, res) => {
         res.sendStatus(500);
     }); // end pool.query
 }); // end router.get
+
+// // projects GET route
+// router.get('/totalTime', (req, res) => {
+//     console.log('GET /projects route');
+//     const queryText = `SELECT projects.id, projects.project_description,
+//                         projects.client, SUM(DATE_PART('day', end_date - start_date) * 24 + 
+//                         DATE_PART('hour', end_date - start_date))
+//                         as total_time FROM entries
+//                         JOIN projects ON entries.projects_id = projects.id
+//                         GROUP BY projects.id, projects.project_description, projects.client;`;
+//     pool.query(queryText).then(result => {
+//         console.log('Succes in GET /projects', result.rows);
+//         res.send(result.rows);
+//     }).catch(error => {
+//         console.log('ERROR - GET /projects -', error);
+//         res.sendStatus(500);
+//     }); // end pool.query
+// }); // end router.get
 
 // projects DELETE request to delete from database
 router.delete('/:id', (req, res) => {

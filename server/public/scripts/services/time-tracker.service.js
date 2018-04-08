@@ -63,13 +63,13 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
     self.getProjects = function(){
         console.log('in getProjects');
         $http.get('/projects').then(function(result){
-            console.log('getProjects GET success', result);
+            console.log('getProjects GET success result.data', result.data);
             self.projectList.list = result.data;
         }).catch(function(error){
             console.log('getProjects GET ERROR', error);
         }); // end $http GET route
     } // end getProjects
-    self.getProjects();
+    
 
     // DELETE request to delete project from database
     self.removeProject = function(projectId){
@@ -81,4 +81,6 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
             console.log('removeProject DELETE ERROR', error);
         })
     }
+
+    self.getProjects();
 }]);
