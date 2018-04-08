@@ -32,17 +32,20 @@
     <link rel="stylesheet" href="styles/styles.css">
     <title>Time Tracker App</title>
 </head>
-<body ng-app="TimeTrackerApp">
+<body ng-app="TimeTrackerApp" layout="column">
     <md-toolbar class="md-block md-primary md-hue-3">
         <h1>Time Tracker App</h1>
     </md-toolbar>
 
-    <div ng-include=" '/views/templates/nav.html' "></div>
+    <md-sidenav layout="column" class="sidenav1" md-is-locked-open='true'>
+        <div ng-include=" '/views/templates/nav.html' "></div>
+    </md-sidenav>
 
-
-    <main ng-view>
-        <!-- Entries and Projects html will go here -->
-    </main>
+    <md-content flex layout="column">
+        <main ng-view >
+            <!-- Entries and Projects html will go here -->
+        </main>
+    </md-content>
 
 </body>
 </html>
