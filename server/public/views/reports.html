@@ -2,16 +2,23 @@
 <div>
     <md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3">
         <div flex="80" class="navBtn">
-                <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px; color: rgb(174, 248, 231);" ng-click="vm.makeChart()">Reports on Project Progress</md-button>
+                <md-button class="md-primary md-hue-1 md-raised"
+                 style="padding:15px; font-size:20px; color: rgb(174, 248, 231);"
+                  ng-click="vm.makeChart() || vm.makeSecondChart()">Reports on Project Progress
+                </md-button>
         </div>
     </md-tooldbar>
 </div>
 <hr>
 </md-content>
-<md-content class="viewContent">
-        <h3>click button to generate graph</h3>
-        <div class="chart-container">
+<md-content class="viewContent" layout="row">
+        <div class="chart-container" layout-align="start">
+            <h4>Total Hours by Client</h4>
             <canvas id="myChart" width="400" height="400"></canvas>
+        </div> 
+        <div class="chart-container" layout-align="end">
+            <h4>Total Earnings By Client</h4>
+            <canvas id="mySecondChart" width="400" height="400"></canvas>
         </div> 
 </md-content>
     
