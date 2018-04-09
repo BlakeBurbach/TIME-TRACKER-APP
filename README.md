@@ -7,6 +7,9 @@ Then back on the projects page, for every hour added up from the tasks, the proj
 Then as a fun feature, there is a report page that has two graphs.
 One graph to visually represent how many hours worked for each client, and the other table visually represents the pay from each client.
 
+To-do list provided by Trello:
+https://trello.com/b/SgrRzP09/blakes-time-tracker-app
+
 A list of all the technologies and languages used in this project.
 Front-End:
     -AngularJS
