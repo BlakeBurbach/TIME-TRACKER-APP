@@ -29,11 +29,11 @@ TimeTrackerApp.config(['$routeProvider', function($routeProvider){
 
     $routeProvider
         .when('/', {
-            redirectTo: '/entries'
+            redirectTo: '/tasks'
         })
-        .when('/entries', {
-            templateUrl: '/views/entries.html',
-            controller: 'EntriesController as vm'
+        .when('/tasks', {
+            templateUrl: '/views/task.html',
+            controller: 'TasksController as vm'
         })
         .when('/projects', {
             templateUrl: '/views/projects.html',

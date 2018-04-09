@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 // POST function to send user's task descriptions to database
 router.post('/', (req, res) => {
     let taskToAdd = req.body;
-    console.log('POST /tasks route', entryToAdd);
+    console.log('POST /tasks route', taskToAdd);
     // add user's task data to time_tracker database under tasks
     let queryText = `INSERT INTO tasks (description, start_date, end_date, projects_id)
                      VALUES ($1, $2, $3, $4);`
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     // GET request does math to find the sum of hours per each task entry
     // and makes a total_time property
     const queryText = `SELECT tasks.*, 
-                       tasks.id as entry_ID,
+                       tasks.id as task_ID,
                        tasks.description as task_desc,
                        projects.client as project_client,
                        projects.id as project_ID,
@@ -44,7 +44,7 @@ router.get('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     let taskId = req.params.id;
     const queryText =  `DELETE FROM tasks WHERE id = $1;`;
-    pool.query(queryText, [entryId]).then(result => {
+    pool.query(queryText, [taskId]).then(result => {
         console.log('success DELETE /tasks');
         res.sendStatus(200);
     }).catch(error => {

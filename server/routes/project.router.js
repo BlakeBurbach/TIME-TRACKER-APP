@@ -4,9 +4,9 @@ const pool = require('../modules/pool.js');
 
 // POST function to send user's project entries to database
 router.post('/', (req, res) => {
-    console.log('POST /entries route');
+    console.log('POST /projects route');
     let projectToAdd = req.body;
-    // add user's entry data to time_tracker database under projects
+    // add user's project data to time_tracker database under projects
     let queryText = `INSERT INTO projects (project_description, client, hourly_rate)
                      VALUES ($1, $2, $3);`
     pool.query(queryText, [projectToAdd.project_description, projectToAdd.client, projectToAdd.hourly_rate])
@@ -22,10 +22,15 @@ router.post('/', (req, res) => {
 // projects GET route
 router.get('/', (req, res) => {
     console.log('GET /projects route');
+    // Query to get back all projects with now calculated total_time,
+    // total_earnings from all task data
     const queryText = `SELECT SUM(COALESCE((DATE_PART('day', end_date - start_date) * 24 + 
-    DATE_PART('hour', end_date - start_date)),0)) as total_time, SUM(COALESCE((DATE_PART('day', end_date - start_date) * 24 + 
-    DATE_PART('hour', end_date - start_date)),0)* projects.hourly_rate) as total_earnings, projects.client, projects.id, 		projects.project_description, projects.hourly_rate
-    FROM projects LEFT JOIN entries ON projects.id = entries.projects_id
+    DATE_PART('hour', end_date - start_date)),0)) as total_time,
+    SUM(COALESCE((DATE_PART('day', end_date - start_date) * 24 + 
+    DATE_PART('hour', end_date - start_date)),0)* projects.hourly_rate) as total_earnings,
+    projects.client, projects.id, 
+    projects.project_description, projects.hourly_rate
+    FROM projects LEFT JOIN tasks ON projects.id = tasks.projects_id
     GROUP BY projects.id, projects.client, projects.project_description, projects.hourly_rate
     ORDER BY id ASC;`;
     pool.query(queryText).then(result => {
@@ -48,8 +53,8 @@ router.delete('/:id', (req, res) => {
     }).catch(error => {
         console.log('ERROR - DELETE /projects - ', error);
         res.sendStatus(500);
-    })
-})
+    }) // end pool.query
+}) // end router.delete
 
 
 module.exports = router;
