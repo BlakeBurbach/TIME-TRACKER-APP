@@ -29,6 +29,16 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
           });
     } // end addEntry
 
+    self.updateEntry = function(entry, editingId) {
+        $http({
+            method: 'PUT',
+            url: `/entries/${editingId}`,
+            data: entry 
+        }).then((response) => {
+            self.getEntries();
+        })
+    } 
+
     self.listOfEntries = {list: []};
 
     // GET request for retrieving entry data from database

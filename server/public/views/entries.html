@@ -1,6 +1,8 @@
 <md-toolbar layout="column" layout-align="left center"  class="md-primary md-hue-3 md-raised">
     <div flex="80">
-        <md-button class="md-primary md-hue-1 md-raised" style="padding:15px; font-size:20px; color: rgb(174, 248, 231);" ng-click="vm.taskShow = !vm.taskShow">Add a Task</md-button>
+        <md-button class="md-primary md-hue-1 md-raised"
+         style="padding:15px; font-size:20px; color: rgb(174, 248, 231);"
+          ng-click="vm.taskShow = !vm.taskShow">Add a Task</md-button>
     </div>
 </md-tooldbar>
 <md-content flex="66" layout="column">
@@ -56,9 +58,6 @@
                                 Total Time
                             </th>
                             <th>
-                                Update
-                            </th>
-                            <th>
                                 Remove
                             </th>
                         </tr>
@@ -81,9 +80,6 @@
                             </td>
                             <td>
                                 {{entry.total_time}} hours
-                            </td>
-                            <td>
-                                <md-button class="md-primary md-hue-2 md-raised" ng-click="vm.updateEntry(entry.entry_id, update)">Edit</md-button>
                             </td>
                             <td>
                                 <md-button class="md-warn md-raised" ng-click="vm.removeEntry(entry.entry_id)">Delete</md-button>

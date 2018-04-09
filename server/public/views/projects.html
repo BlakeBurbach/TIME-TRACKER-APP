@@ -47,9 +47,6 @@
                                     Total Earnings
                                 </th>
                                 <th>
-                                    Update
-                                </th>
-                                <th>
                                     Remove
                                 </th>
                             </tr>
@@ -70,9 +67,6 @@
                                 </td>
                                 <td>
                                     {{project.total_earnings | currency}}
-                                </td>
-                                <td>
-                                    <md-button class="md-primary md-hue-2 md-raised" ng-click="vm.updateProject(project.id, update)">Edit</md-button>
                                 </td>
                                 <td>
                                     <md-button class="md-warn md-raised" ng-click="vm.removeProject(project.id)">Delete</md-button>
