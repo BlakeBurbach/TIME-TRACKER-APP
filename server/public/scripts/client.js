@@ -32,7 +32,7 @@ TimeTrackerApp.config(['$routeProvider', function($routeProvider){
             redirectTo: '/tasks'
         })
         .when('/tasks', {
-            templateUrl: '/views/task.html',
+            templateUrl: '/views/tasks.html',
             controller: 'TasksController as vm'
         })
         .when('/projects', {

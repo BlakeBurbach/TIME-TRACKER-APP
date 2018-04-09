@@ -36,7 +36,6 @@
         </md-toolbar>
 </div> 
 </md-content>
-<hr>
 <div class="views">
     <div class="tableDiv">
             <table>
@@ -82,7 +81,7 @@
                                 {{task.total_time}} hours
                             </td>
                             <td>
-                                <md-button class="md-warn md-raised" ng-click="vm.removeTask(task.task_id)">Delete</md-button>
+                                <md-button class="md-warn md-raised" ng-click="vm.removeTask(task.id)">Delete</md-button>
                             </td>
                         </tr>
                     </tbody>

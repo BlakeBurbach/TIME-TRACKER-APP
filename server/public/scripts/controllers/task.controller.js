@@ -15,7 +15,7 @@ TimeTrackerApp.controller('TasksController', ['TimeTrackerService', function(Tim
     self.projectList = TimeTrackerService.projectList;
 
     // connecting task.html delete button to service DELETE request
-    self.removeTask = TimeTrackerService.removeTAsk;
+    self.removeTask = TimeTrackerService.removeTask;
 
     // This hides the input field for tasks until the 'Add Task' button is clicked
     self.taskShow = false;
