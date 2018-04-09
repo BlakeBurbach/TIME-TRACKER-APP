@@ -6,7 +6,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
 
     // POST request for sending task data to database
     self.addTask = function(newTask){
-        console.log('addTask clicked', newTask);
+        // console.log('addTask clicked', newTask);
         swal({
             title: "Add Task",
             text: "Task Entered",
@@ -17,11 +17,11 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
             if (addTask) {
             $http.post('/tasks', newTask)
             .then(function(result){
-            console.log('addTask POST success', result);
+            // console.log('addTask POST success', result);
             self.getTasks();
             self.getProjects();
         }).catch(function(error){
-            console.log('addTask POST error', error);
+            // console.log('addTask POST error', error);
         }) // end $http POST route
             } else {
               swal("Oh no! Something went wrong!");
@@ -34,9 +34,9 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
 
     // GET request for retrieving task data from database
     self.getTasks = function(){
-        console.log('in getTasks');
+        // console.log('in getTasks');
         $http.get('/tasks').then(function(result){
-            console.log('getTasks GET success', result.data);
+            // console.log('getTasks GET success', result.data);
             self.listOfTasks.list = result.data;
         }).catch(function(error){
             console.log('getTasks GET error', error);
@@ -45,7 +45,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
 
     // DELETE request to delete project from database
     self.removeTask = function(taskId){
-        console.log('In removeTask');
+        // console.log('In removeTask');
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this task!",
@@ -59,7 +59,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
                 icon: "success",
               });
               $http.delete(`/tasks/${taskId}`).then(function(result){
-                console.log('removeTasky DELETE success', result);
+                // console.log('removeTasky DELETE success', result);
                 self.getTasks();
                 self.getProjects();
             }).catch(function(error){
@@ -84,10 +84,10 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         })
         .then((addProject) => {
             if (addProject) {
-            console.log('In addProject with new project', newProject);
+            // console.log('In addProject with new project', newProject);
             $http.post('/projects', newProject)
             .then(function(result){
-                console.log('addProject POST success', result);
+                // console.log('addProject POST success', result);
                 self.getProjects();
             }).catch(function(error){
                     console.log('addProject POST ERROR', error);
@@ -103,7 +103,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
 
     // GET request to retrieve project data from the database
     self.getProjects = function(){
-        console.log('in getProjects');
+        // console.log('in getProjects');
         $http.get('/projects').then(function(result){
             console.log('getProjects GET success result.data', result.data);
             self.projectList.list = result.data;
@@ -128,7 +128,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
                 icon: "success",
               }); // end sweet success
               $http.delete(`/projects/${projectId}`).then(function(result){
-                console.log('removeProject DELETE success', result);
+                // console.log('removeProject DELETE success', result);
                 self.getProjects();
             }).catch(function(error){
                 console.log('removeProject DELETE ERROR', error);

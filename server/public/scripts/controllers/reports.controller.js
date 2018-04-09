@@ -8,7 +8,7 @@ TimeTrackerApp.controller('ReportsController', ['TimeTrackerService', function(T
 
     // First chart to display the relationship of total hours worked for each client
     self.makeChart = function () {
-        console.log('in makeChart');
+        // console.log('in makeChart');
         // make project data into an array to be easily looped over
         let projectList = self.projectList.list
 
@@ -62,7 +62,7 @@ TimeTrackerApp.controller('ReportsController', ['TimeTrackerService', function(T
     }
     // Second chart to display the relationship of total earnings from each client
     self.makeSecondChart = function(){
-        console.log('in makeSecondChart');
+        // console.log('in makeSecondChart');
         // make project data into an array to be easily looped over
         let projectList = self.projectList.list
 
