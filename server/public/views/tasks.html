@@ -12,7 +12,7 @@
         <md-toolbar layout="row">
                     <md-input-container flex>
                         <label>Project</label>
-                        <md-select ng-model="vm.newEntry.project_id" class="md-accent">
+                        <md-select ng-model="vm.newTask.project_id" class="md-accent">
                             <md-option ng-repeat="project in vm.projectList.list" ng-value="{{project.id}}">
                                 {{project.project_description}} / {{project.client}}
                             </md-option>
@@ -21,18 +21,18 @@
                     
                     <md-input-container class="md-accent" flex>
                         <label>Task Description</label>
-                        <input ng-model="vm.newEntry.description">
+                        <input ng-model="vm.newTask.description">
                     </md-input-container>
                 
                     <md-input-container class="md-accent" flex>
                         <label>Start Date</label>
-                        <input type="datetime-local" id="start_date" ng-model="vm.newEntry.start_date">
+                        <input type="datetime-local" id="start_date" ng-model="vm.newTask.start_date">
                     </md-input-container>
                     <md-input-container class="md-accent" flex>
                         <label>End Date</label>
-                        <input type="datetime-local" id="end_date" ng-model="vm.newEntry.end_date">
+                        <input type="datetime-local" id="end_date" ng-model="vm.newTask.end_date">
                     </md-input-container>
-                    <md-button class="md-accent md-hue-3" ng-click="vm.addEntry(vm.newEntry)">Add Entry</md-button>
+                    <md-button class="md-accent md-hue-3" ng-click="vm.addTask(vm.newTask)">Add Task</md-button>
         </md-toolbar>
 </div> 
 </md-content>
@@ -62,27 +62,27 @@
                             </th>
                         </tr>
                     </thead>
-                    <tbody ng-repeat="entry in vm.listOfEntries.list">
+                    <tbody ng-repeat="task in vm.listOfTasks.list">
                         <tr>
                             <td>
-                                {{entry.project_client}}
+                                {{task.project_client}}
                             </td>
                             <td>
-                                {{entry.entry_desc}}
+                                {{task.task_desc}}
                             </td>
                             <td>
-                                {{entry.start_date | date:'MMMM dd, yyyy'}}<br><hr>
-                                {{entry.start_date | date:'h:mma'}}
+                                {{task.start_date | date:'MMMM dd, yyyy'}}<br><hr>
+                                {{task.start_date | date:'h:mma'}}
                             </td>
                             <td>
-                                {{entry.end_date | date: 'MMMM dd, yyyy'}}<br><hr>
-                                {{entry.end_date | date:'h:mma'}}
+                                {{task.end_date | date: 'MMMM dd, yyyy'}}<br><hr>
+                                {{task.end_date | date:'h:mma'}}
                             </td>
                             <td>
-                                {{entry.total_time}} hours
+                                {{task.total_time}} hours
                             </td>
                             <td>
-                                <md-button class="md-warn md-raised" ng-click="vm.removeEntry(entry.entry_id)">Delete</md-button>
+                                <md-button class="md-warn md-raised" ng-click="vm.removeTask(task.task_id)">Delete</md-button>
                             </td>
                         </tr>
                     </tbody>

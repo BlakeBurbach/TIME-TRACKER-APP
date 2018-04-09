@@ -2,50 +2,50 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
     console.log('TimeTrackerService loaded');
     let self = this;
 
-    //---------------------------------------  EntryController Functions -----------------------------------------
+    //---------------------------------------  TaskController Functions -----------------------------------------
 
-    // POST request for sending entry data to database
-    self.addEntry = function(newEntry){
-        console.log('addEntry clicked', newEntry);
+    // POST request for sending task data to database
+    self.addTask = function(newTask){
+        console.log('addTask clicked', newTask);
         swal({
             title: "Add Task",
             text: "Task Entered",
             icon: "success",
             buttons: true,
           })
-          .then((addEntry) => {
-            if (addEntry) {
-            $http.post('/entries', newEntry)
+          .then((addTask) => {
+            if (addTask) {
+            $http.post('/tasks', newTask)
             .then(function(result){
-            console.log('addEntry POST success', result);
-            self.getEntries();
+            console.log('addTask POST success', result);
+            self.getTasks();
             self.getProjects();
         }).catch(function(error){
-            console.log('addEntry POST error', error);
+            console.log('addTask POST error', error);
         }) // end $http POST route
             } else {
               swal("Oh no! Something went wrong!");
             }
           });
-    } // end addEntry
+    } // end addTask
 
-    // object full of all entry data to send back to DOM 
-    self.listOfEntries = {list: []};
+    // object full of all task data to send back to DOM 
+    self.listOfTasks = {list: []};
 
-    // GET request for retrieving entry data from database
-    self.getEntries = function(){
-        console.log('in getEntries');
-        $http.get('/entries').then(function(result){
-            console.log('getEntries GET success', result.data);
-            self.listOfEntries.list = result.data;
+    // GET request for retrieving task data from database
+    self.getTasks = function(){
+        console.log('in getTasks');
+        $http.get('/tasks').then(function(result){
+            console.log('getTasks GET success', result.data);
+            self.listOfTasks.list = result.data;
         }).catch(function(error){
-            console.log('getEntries GET error', error);
+            console.log('getTasks GET error', error);
         }); // end $http GET route
-    } // end getEntries
+    } // end getTasks
 
     // DELETE request to delete project from database
-    self.removeEntry = function(entryId){
-        console.log('In removeEntry');
+    self.removeTask = function(taskId){
+        console.log('In removeTask');
         swal({
             title: "Are you sure?",
             text: "Once deleted, you will not be able to recover this task!",
@@ -53,23 +53,23 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
             buttons: true,
             dangerMode: true,
           })
-          .then((removeEntry) => {
-            if (removeEntry) {
+          .then((removeTask) => {
+            if (removeTask) {
               swal("Task Deleted", {
                 icon: "success",
               });
-              $http.delete(`/entries/${entryId}`).then(function(result){
-                console.log('removeEntry DELETE success', result);
-                self.getEntries();
+              $http.delete(`/tasks/${taskId}`).then(function(result){
+                console.log('removeTasky DELETE success', result);
+                self.getTasks();
                 self.getProjects();
             }).catch(function(error){
-                console.log('removeEntry DELETE ERROR', error);
+                console.log('removeTask DELETE ERROR', error);
             }); // end $http DELETE route
             } else {
               swal("Task wasn't deleted");
             }
           });
-    } // end removeEntry
+    } // end removeTask
 
 
     // ---------------------------------------- ProjectsController Functions -----------------------------------------
@@ -139,6 +139,6 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         })// end sweet delete
     } // end removeProjects
 
-    self.getEntries(); // call to get all task entry data upon page load
+    self.getTasks(); // call to get all task entry data upon page load
     self.getProjects(); // call to get all projects on page load
 }]);

@@ -27,7 +27,7 @@
     <script src="scripts/client.js"></script>
     <!-- <script src="scripts/services/time-tracker.service.js"></script> -->
     <script src="scripts/services/time-tracker.service.js"></script>
-    <script src="scripts/controllers/entries.controller.js"></script>
+    <script src="scripts/controllers/task.controller.js"></script>
     <script src="scripts/controllers/projects.controller.js"></script>
     <script src="scripts/controllers/reports.controller.js"></script>
     <!-- CSS -->
@@ -46,10 +46,10 @@
         <div>
             <div ng-include=" '/views/templates/nav.html' "></div>
         </div>
-        
+
     <md-content flex layout="column">    
         <ng-view>
-            <!-- Entries and Projects html will go here -->
+            <!-- Tasks and Projects html will go here -->
         </ng-view>
     </md-content>
 
