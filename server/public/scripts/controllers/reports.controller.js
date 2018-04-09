@@ -77,7 +77,7 @@ TimeTrackerApp.controller('ReportsController', ['TimeTrackerService', function(T
     
         let ctx = angular.element( document.querySelector( '#mySecondChart' ) );
         let mySecondChart = new Chart(ctx, {
-            type: 'bar',
+            type: 'doughnut',
             data: {
                 labels: clientArray,
                 datasets: [{
@@ -103,13 +103,7 @@ TimeTrackerApp.controller('ReportsController', ['TimeTrackerService', function(T
                 }]
             },
             options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
+                cutoutPercentage: 50
             }
         });
     }
