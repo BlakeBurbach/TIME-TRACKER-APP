@@ -7,7 +7,6 @@ TimeTrackerApp.controller('ProjectsController', ['TimeTrackerService', function(
 
     // connecting project.html table to service GET request
     self.getProjects = TimeTrackerService.getProjects;
-    // self.getProjectsWithTotalTime = TimeTrackerService.getProjectsWithTotalTime;
 
     // the object of arrays back from database to display on DOM
     self.projectList = TimeTrackerService.projectList;
@@ -15,5 +14,6 @@ TimeTrackerApp.controller('ProjectsController', ['TimeTrackerService', function(
     // connecting project.html delete button to service DELETE request
     self.removeProject = TimeTrackerService.removeProject;
 
+    // This hides the input field for tasks until the 'Add Task' button is clicked
     self.projectShow= false;
 }]);

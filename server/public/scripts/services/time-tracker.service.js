@@ -29,16 +29,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
           });
     } // end addEntry
 
-    self.updateEntry = function(entry, editingId) {
-        $http({
-            method: 'PUT',
-            url: `/entries/${editingId}`,
-            data: entry 
-        }).then((response) => {
-            self.getEntries();
-        })
-    } 
-
+    // object full of all entry data to send back to DOM 
     self.listOfEntries = {list: []};
 
     // GET request for retrieving entry data from database
@@ -51,7 +42,6 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
             console.log('getEntries GET error', error);
         }); // end $http GET route
     } // end getEntries
-    self.getEntries(); // call upon page load
 
     // DELETE request to delete project from database
     self.removeEntry = function(entryId){
@@ -84,7 +74,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
 
     // ---------------------------------------- ProjectsController Functions -----------------------------------------
 
-    // POST request for send project data to database
+    // POST request to send project data to database
     self.addProject = function(newProject){
         swal({
             title: "Add Project",
@@ -108,6 +98,7 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         });  
     }  
 
+    // object of all project data to send back to display on DOM
     self.projectList = {list: []};
 
     // GET request to retrieve project data from the database
@@ -148,5 +139,6 @@ TimeTrackerApp.service('TimeTrackerService', ['$http', function($http){
         })// end sweet delete
     } // end removeProjects
 
-    self.getProjects();
+    self.getEntries(); // call to get all task entry data upon page load
+    self.getProjects(); // call to get all projects on page load
 }]);

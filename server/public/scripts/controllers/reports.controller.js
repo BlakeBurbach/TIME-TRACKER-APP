@@ -2,16 +2,22 @@ TimeTrackerApp.controller('ReportsController', ['TimeTrackerService', function(T
     console.log('ReportsController loaded');
     let self = this;
 
-    self.generateGraph = false;
+
+    // Information from the projects table from database to use in charts
     self.projectList = TimeTrackerService.projectList;
 
+    // First chart to display the relationship of total hours worked for each client
     self.makeChart = function () {
         console.log('in makeChart');
+        // make project data into an array to be easily looped over
         let projectList = self.projectList.list
-        console.log(projectList);
+
+        // loop over client's name to differentiate between each client
         let clientArray = projectList.map((e, i) => {
             return e.client; 
         })
+
+        // loop over total time to use total time data
         let hoursArray = projectList.map((e, i) => {
             return e.total_time; 
         })
@@ -54,14 +60,17 @@ TimeTrackerApp.controller('ReportsController', ['TimeTrackerService', function(T
             }
         });
     }
-
+    // Second chart to display the relationship of total earnings from each client
     self.makeSecondChart = function(){
         console.log('in makeSecondChart');
+        // make project data into an array to be easily looped over
         let projectList = self.projectList.list
 
+        // loop over just the client's names for differentiation
         let clientArray = projectList.map((e, i) => {
             return e.client; 
         })
+        // loop over total earnings to just use total_earnings data
         let moneyArray = projectList.map((e, i) => {
             return ('$', e.total_earnings); 
         })
