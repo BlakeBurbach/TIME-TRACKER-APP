@@ -1,4 +1,4 @@
-This is my Time Tracker App for my AngularJS capstone project.
+# Time Tracker App for AngularJS capstone project.
 
 This app was intended as a prototype for independent-workers or anybody who works
 for themselves. The premise is that they can add clients and the projects that they are working on for them with an hourly rate per project. For every project added, they have the ability to document all of their hours per each project for every client. 
@@ -7,39 +7,34 @@ Then back on the projects page, for every hour added up from the tasks, the proj
 Then as a fun feature, there is a report page that has two graphs.
 One graph to visually represent how many hours worked for each client, and the other table visually represents the pay from each client.
 
-To-do list provided by Trello:
-https://trello.com/b/SgrRzP09/blakes-time-tracker-app
+## Tasks for Projects page
 
-A list of all the technologies and languages used in this project.
+User can add tasks that they have completed for a client's project with start and end times.
+
+![Tasks](images/Task_Page.png)
+
+## Client Project Page
+
+User can add a client, project for client, and hourly rate for the project.
+
+![Client](images/Client_Page.png)
+
+## Progress Charts
+
+User can see all of their hours worked and how much they made per project in graph form.
+
+![Progress](images/Chart_Page.png)
+
+
+### Tech Used
 Front-End:
-    -AngularJS
-    -AngularJS Material Design
-        -Aria, Messages, and Animate
-    -ChartJS
-    -Sweetalert
-    -Google Fonts
+    * AngularJS
+    * AngularJS Material Design
+    * ChartJS
+    * Sweetalert.js
+    * Google Fonts
 
 Back-End:
-    -NodeJS
-    -Express
-    -postgreSQL
-
-For ease of using the database:
-Database name is time_tracker
-tables:
-
-CREATE TABLE tasks (
-	id SERIAL PRIMARY KEY,
-	description VARCHAR(140),
-	start_date timestamp,
-	end_date timestamp,
-	project_id INT REFERENCES projects 
-);
-
-
-CREATE TABLE projects (
-	id SERIAL PRIMARY KEY,
-	project_description VARCHAR(80),
-	client VARCHAR(30),
-	hourly_rate INT
-);
+    * Node.js
+    * Express.js
+    * PostgreSQL
