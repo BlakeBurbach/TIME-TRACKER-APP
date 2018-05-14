@@ -27,14 +27,11 @@ User can see all of their hours worked and how much they made per project in gra
 
 
 ### Tech Used
-Front-End:
-    * AngularJS
-    * AngularJS Material Design
-    * ChartJS
-    * Sweetalert.js
-    * Google Fonts
-
-Back-End:
-    * Node.js
-    * Express.js
-    * PostgreSQL
+* AngularJS
+* AngularJS Material Design
+* ChartJS
+* Sweetalert.js
+* Google Fonts
+* Node.js
+* Express.js
+* PostgreSQL
